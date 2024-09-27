@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Kasia💖</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #823441;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .falling-element {
+            position: absolute;
+            top: -100px;
+            font-size: 48px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .bottom-gif {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .text {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffb6c1;
+            font-size: 24px;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            font-weight: bold;
+            opacity: 0;
+            animation: fadeIn 3s ease-in-out forwards, pulse 2s infinite;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            font-family: 'Arial', sans-serif;
+            color: #ffcccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+
+        .footer img {
+            width: 20px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        @media (max-width: 600px) {
+            .text {
+                font-size: 18px;
+                color: #ffe4e1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <img src="1.gif" alt="" class="bottom-gif">
+    <p class="text">Codziennie dajesz mi powód do radości, mam nadzieję, że ta strona również ci go da🙈💖</p>
+    
+    <div class="footer">
+        Form Black Monkey To Kasia😅🙈💖
+    </div>
+
+    <script>
+        const elements = ['🌸', '🌺', '🌻', '🌼', '💐', '❤️', '💖', '💝', '🙈', '💕'];
+
+        function createFallingElement() {
+            const element = document.createElement('div');
+            element.classList.add('falling-element');
+            element.innerText = elements[Math.floor(Math.random() * elements.length)];
+            element.style.left = `${Math.random() * 100}vw`;
+            element.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            document.body.appendChild(element);
+
+            setTimeout(() => {
+                element.remove();
+            }, 5000);
+        }
+
+        setInterval(createFallingElement, 300);
+    </script>
+</body>
+</html>
